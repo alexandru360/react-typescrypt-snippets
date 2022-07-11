@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { xyz, XyzTransitionGroup } from '@animxyz/react';
 
 export default function UnderstandingHooks() {
   const [someValue, setSomeValue] = React.useState(true);
@@ -33,21 +34,25 @@ export default function UnderstandingHooks() {
       <h3>Understanding hooks</h3>
       <h5>File: UnderstandingHooks.tsx</h5>
       <br />
-      <button
-        onClick={() => {
-          setSomeValue(!someValue);
-        }}
-      >
-        Some button
-      </button>
+      <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
+        <button
+          onClick={() => {
+            setSomeValue(!someValue);
+          }}
+        >
+          Some button
+        </button>
+      </XyzTransitionGroup>
 
-      <button
-        onClick={() => {
-          setSomeValue1(!someValue1);
-        }}
-      >
-        Some button value1
-      </button>
+      <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
+        <button
+          onClick={() => {
+            setSomeValue1(!someValue1);
+          }}
+        >
+          This produces no effect in console!
+        </button>
+      </XyzTransitionGroup>
     </React.Fragment>
   );
 }
