@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { xyz, XyzTransitionGroup } from '@animxyz/react';
 import Button from 'react-bootstrap/Button';
+import './UnderstandingHooks.css';
 
-export default function UnderstandingHooks() {
-  const [someValue, setSomeValue] = React.useState(true);
-  const [someValue1, setSomeValue1] = React.useState(true);
-
+export default function UnderstandingHooks(props: any) {
   // Every time onChange ...
   React.useEffect(() =>
     console.info(
@@ -22,6 +20,7 @@ export default function UnderstandingHooks() {
     []
   );
 
+  const [someValue, setSomeValue] = React.useState(true);
   // modelChange ... linked to whatever is passed in array !
   React.useEffect(() => {
     console.info(
@@ -30,6 +29,7 @@ export default function UnderstandingHooks() {
     );
   }, [someValue]);
 
+  const [otherValue, setOtherValue] = React.useState(true);
   return (
     <React.Fragment>
       <XyzTransitionGroup className="xyz-in" xyz="fade in big">
@@ -54,7 +54,7 @@ export default function UnderstandingHooks() {
         <Button
           variant="secondary"
           onClick={() => {
-            setSomeValue1(!someValue1);
+            setOtherValue(!otherValue);
           }}
         >
           This produces no effect in console!

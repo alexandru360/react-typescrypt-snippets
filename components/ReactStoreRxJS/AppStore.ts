@@ -17,7 +17,7 @@ const appStore = {
   subscribe: (setState: any) => subject.subscribe(setState),
   sendMessage: (message: string) => {
     state = {
-      ...state,
+      // ...state,
       data: [...state.data, message],
       newDataCount: state.newDataCount + 1,
     };

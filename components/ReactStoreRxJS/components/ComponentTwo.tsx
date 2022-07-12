@@ -86,7 +86,7 @@ export default function ComponentTwo() {
 
       <ButtonGroup aria-label="Basic example">
         {store.map((item: string, index: number) => (
-          <XyzTransitionGroup className="xyz-in" xyz="fade in big">
+          <XyzTransitionGroup key={index} className="xyz-in" xyz="fade in big">
             <Button
               key={index}
               variant="warning"

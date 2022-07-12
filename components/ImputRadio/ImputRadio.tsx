@@ -26,9 +26,8 @@ export default function ImputRadio() {
       <br />
       <Form>
         {radioArray.map((radio, index) => (
-          <div>
-            <br />
-            {/* <Form.Check id={index} type=""/> */}
+          <React.Fragment key={index}>
+            <br key={index} />
             <input
               key={index}
               type="radio"
@@ -42,7 +41,7 @@ export default function ImputRadio() {
             <label key={`lbl${index}`} htmlFor={`input-${index}`}>
               {radio}
             </label>
-          </div>
+          </React.Fragment>
         ))}
       </Form>
       <hr />
