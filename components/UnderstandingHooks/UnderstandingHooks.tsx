@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { xyz, XyzTransitionGroup } from '@animxyz/react';
+import Button from 'react-bootstrap/Button';
 
 export default function UnderstandingHooks() {
   const [someValue, setSomeValue] = React.useState(true);
@@ -31,28 +32,36 @@ export default function UnderstandingHooks() {
 
   return (
     <React.Fragment>
-      <h3>Understanding hooks</h3>
-      <h5>File: UnderstandingHooks.tsx</h5>
-      <br />
-      <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
-        <button
-          onClick={() => {
-            setSomeValue(!someValue);
-          }}
-        >
-          Some button
-        </button>
+      <XyzTransitionGroup className="xyz-in" xyz="fade in big">
+        <h1 className="header">Understanding hooks</h1>
       </XyzTransitionGroup>
-
       <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
-        <button
-          onClick={() => {
-            setSomeValue1(!someValue1);
-          }}
-        >
-          This produces no effect in console!
-        </button>
+        <p>File: UnderstandingHooks.tsx</p>
       </XyzTransitionGroup>
+      <hr />
+      <p>
+        <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
+          <Button
+            variant="info"
+            onClick={() => {
+              setSomeValue(!someValue);
+            }}
+          >
+            Primary
+          </Button>
+        </XyzTransitionGroup>
+        <br />
+        <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
+          <Button
+            variant="secondary"
+            onClick={() => {
+              setSomeValue1(!someValue1);
+            }}
+          >
+            This produces no effect in console!
+          </Button>
+        </XyzTransitionGroup>
+      </p>
     </React.Fragment>
   );
 }

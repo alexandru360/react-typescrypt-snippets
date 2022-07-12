@@ -8,65 +8,71 @@ import AppReactStoreRxJS from './components/ReactStoreRxJS/AppReactStoreRxJS';
 import UnderstandingHooks from './components/UnderstandingHooks/UnderstandingHooks';
 import Welcome from './components/Welcome/Welcome';
 import { xyz, XyzTransitionGroup } from '@animxyz/react';
+import { Container, Nav } from 'react-bootstrap';
 
 export default function App() {
   return (
     <React.Fragment>
       <Router>
-        <nav>
-          <ul>
-            <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
-              <li>
-                <Link to="/">0. Home</Link>
-              </li>
-            </XyzTransitionGroup>
+        <Nav
+          // onSelect={(selectedKey) => console.info(`selected ${selectedKey}`)}
+          className="justify-content-center"
+        >
+          <Nav.Item>
+            <Nav.Link href="/" eventKey="home">
+              Home
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/react-hooks" eventKey="hooks">
+              React.useEffect
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/radio-buttons" eventKey="radio-buttons">
+              Radio (optiongroup)
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/work-with-checkbox" eventKey="checkboxes">
+              Checkboxes{' '}
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/react-store" eventKey="react-store">
+              React store (RxJs){' '}
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/comming-soon" eventKey="comming-soon">
+              What is next{' '}
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
 
-            <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
-              <li>
-                <Link to="/react-hooks">1. React Hooks</Link>
-              </li>
-            </XyzTransitionGroup>
-
-            <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
-              <li>
-                <Link to="/radio-buttons">2. Radio buttons</Link>
-              </li>
-            </XyzTransitionGroup>
-
-            <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
-              <li>
-                <Link to="/work-with-checkbox">
-                  3. Work with checkbox - not finished yet
-                </Link>
-              </li>
-            </XyzTransitionGroup>
-
-            <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
-              <li>
-                <Link to="/react-store">4. React store (RxJs)</Link>
-              </li>
-            </XyzTransitionGroup>
-
-            <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
-              <li>
-                <Link to="/comming-soon">5. What is next</Link>
-              </li>
-            </XyzTransitionGroup>
-          </ul>
-        </nav>
-
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/radio-buttons" element={<ImputRadio />} />
-          <Route path="/react-hooks" element={<UnderstandingHooks />} />
-          <Route
-            path="/work-with-checkbox"
-            element={<HandleCheckboxOtherWrapper />}
-          />
-          <Route path="/react-store" element={<AppReactStoreRxJS />} />
-          <Route path="/comming-sooncomming-soon" element={<CommingSoon />} />
-        </Routes>
+        <Container className="p-3">
+          <Container className="pb-1 p-5 mb-4 bg-light rounded-3">
+            <Routes>
+              <Route path="/" element={<Welcome />} />
+              <Route path="/radio-buttons" element={<ImputRadio />} />
+              <Route path="/react-hooks" element={<UnderstandingHooks />} />
+              <Route
+                path="/work-with-checkbox"
+                element={<HandleCheckboxOtherWrapper />}
+              />
+              <Route path="/react-store" element={<AppReactStoreRxJS />} />
+              <Route
+                path="/comming-sooncomming-soon"
+                element={<CommingSoon />}
+              />
+            </Routes>
+          </Container>
+        </Container>
       </Router>
+
+      <XyzTransitionGroup className="xyz-in" xyz="fade right-10%">
+        <i>Created by Alexandru-Stefan Badita</i>
+      </XyzTransitionGroup>
     </React.Fragment>
   );
 }
