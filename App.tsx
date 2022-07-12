@@ -15,7 +15,7 @@ export default function App() {
     <React.Fragment>
       <Router>
         <Nav
-          // onSelect={(selectedKey) => console.info(`selected ${selectedKey}`)}
+          onSelect={(selectedKey) => console.info(`selected ${selectedKey}`)}
           className="justify-content-center"
         >
           <Nav.Item>

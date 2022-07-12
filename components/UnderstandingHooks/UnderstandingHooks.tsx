@@ -39,29 +39,27 @@ export default function UnderstandingHooks() {
         <p>File: UnderstandingHooks.tsx</p>
       </XyzTransitionGroup>
       <hr />
-      <p>
-        <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
-          <Button
-            variant="info"
-            onClick={() => {
-              setSomeValue(!someValue);
-            }}
-          >
-            Primary
-          </Button>
-        </XyzTransitionGroup>
-        <br />
-        <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
-          <Button
-            variant="secondary"
-            onClick={() => {
-              setSomeValue1(!someValue1);
-            }}
-          >
-            This produces no effect in console!
-          </Button>
-        </XyzTransitionGroup>
-      </p>
+      <XyzTransitionGroup className="xyz-in" xyz="fade left-100%">
+        <Button
+          variant="info"
+          onClick={() => {
+            setSomeValue(!someValue);
+          }}
+        >
+          Primary
+        </Button>
+      </XyzTransitionGroup>
+      <br />
+      <XyzTransitionGroup className="xyz-in" xyz="fade right-100%">
+        <Button
+          variant="secondary"
+          onClick={() => {
+            setSomeValue1(!someValue1);
+          }}
+        >
+          This produces no effect in console!
+        </Button>
+      </XyzTransitionGroup>
     </React.Fragment>
   );
 }
