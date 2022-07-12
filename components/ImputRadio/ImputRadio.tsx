@@ -1,7 +1,14 @@
 import * as React from 'react';
+import Form from 'react-bootstrap/Form';
 
 export default function ImputRadio() {
-  const [radioArray] = React.useState(['option1', 'option2', 'option3']);
+  const [radioArray] = React.useState([
+    'Option1',
+    'Option2',
+    'Option3',
+    'Option4',
+    'Option5',
+  ]);
   const [radio, setRadio] = React.useState<any | null>(null);
 
   React.useEffect(() => console.info('radio', radio), [radio]);
@@ -17,23 +24,27 @@ export default function ImputRadio() {
       <h3>ImputRadio</h3>
       <h5>How can I work with Radio "buttons" (Options groupped together)</h5>
       <br />
-      {radioArray.map((radio, index) => (
-        <div>
-          <br />
-          <input
-            key={index}
-            type="radio"
-            name="options"
-            id={`input-${index}`}
-            value={radio}
-            onChange={handleChange}
-            // checked={index === 0 ? true : false}
-          />
-          <label key={`lbl${index}`} htmlFor={`input-${index}`}>
-            {radio}
-          </label>
-        </div>
-      ))}
+      <Form>
+        {radioArray.map((radio, index) => (
+          <div>
+            <br />
+            {/* <Form.Check id={index} type=""/> */}
+            <input
+              key={index}
+              type="radio"
+              name="options"
+              id={`input-${index}`}
+              value={radio}
+              onChange={handleChange}
+              // checked={index === 0 ? true : false}
+            />
+            &nbsp;
+            <label key={`lbl${index}`} htmlFor={`input-${index}`}>
+              {radio}
+            </label>
+          </div>
+        ))}
+      </Form>
       <hr />
       <label>{`Selected option: ${JSON.stringify(radio)}`}</label>
     </React.Fragment>
