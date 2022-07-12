@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Button from 'react-bootstrap/cjs/Button';
 import JsonPrettyfier from '../../common/JsonPrettyfier/JsonPrettyfier';
 import appStore from '../../ReactStoreRxJS/AppStore';
 
@@ -20,7 +21,9 @@ export default function DisplayState() {
 
   return (
     <React.Fragment>
-      <button onClick={handleStateClick}>Clear state</button>
+      <Button variant="danger" onClick={handleStateClick}>
+        Clear state
+      </Button>
       <p>Store:</p>
       <JsonPrettyfier {...store} />
     </React.Fragment>

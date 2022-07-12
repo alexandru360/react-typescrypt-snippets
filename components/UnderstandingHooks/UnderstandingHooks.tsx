@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { xyz, XyzTransitionGroup } from '@animxyz/react';
-import Container from 'react-bootstrap/cjs/Container';
 import Button from 'react-bootstrap/Button';
 
 export default function UnderstandingHooks() {

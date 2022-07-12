@@ -1,5 +1,10 @@
 import * as React from 'react';
 import appStore from '../../ReactStoreRxJS/AppStore';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { ButtonGroup } from 'react-bootstrap/cjs';
+import { xyz, XyzTransitionGroup } from '@animxyz/react';
 
 export default function ComponentTwo() {
   const [store, setStore] = React.useState<Array<string>>([]);
@@ -56,30 +61,40 @@ export default function ComponentTwo() {
           <hr />
           <h4>{`Selected value: ${selected?.value}`}</h4>
           <div>
-            <input
-              ref={inputRef}
-              type="text"
-              value={selected?.value}
-              onChange={onInputChange}
-            />
-            <button onClick={handleClickSelectedValue}>
-              Modify selected value in state!
-            </button>
+            <InputGroup className="mb-3">
+              <Form.Control
+                ref={inputRef}
+                placeholder="Enter your text here"
+                aria-label="Enter your text here"
+                aria-describedby="basic-addon2"
+                value={selected?.value}
+                onChange={onInputChange}
+              />
+              <Button
+                variant="success"
+                id="button-addon2"
+                onClick={handleClickSelectedValue}
+              >
+                Modify selected value in state!
+              </Button>
+            </InputGroup>
           </div>
           <hr />
         </React.Fragment>
       )}
       <br />
 
-      <ol>
+      <ButtonGroup aria-label="Basic example">
         {store.map((item: string, index: number) => (
-          <li key={index}>
-            <button
+          <XyzTransitionGroup className="xyz-in" xyz="fade in big">
+            <Button
+              key={index}
+              variant="warning"
               onClick={(e: any) => handleStateClick(e, index, item)}
-            >{`Value ${item}`}</button>
-          </li>
+            >{`Value ${item}`}</Button>
+          </XyzTransitionGroup>
         ))}
-      </ol>
+      </ButtonGroup>
     </React.Fragment>
   );
 }
