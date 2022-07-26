@@ -6,6 +6,8 @@ export default function AutoScroll() {
   const containerRef = React.useRef(null);
 
   const handleScrollToBottom = () => {
+    console.log('containerRef?.current?', containerRef?.current);
+    debugger;
     // containerRef?.current?.scrollToEnd();
   };
 
