@@ -9,6 +9,7 @@ import UnderstandingHooks from './components/UnderstandingHooks/UnderstandingHoo
 import Welcome from './components/Welcome/Welcome';
 import { xyz, XyzTransitionGroup } from '@animxyz/react';
 import { Container, Nav } from 'react-bootstrap';
+import AutoScroll from './components/AutoScroll/AutoScroll';
 
 export default function App() {
   return (
@@ -44,6 +45,11 @@ export default function App() {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
+            <Nav.Link href="/auto-scroll" eventKey="Auto-scroll">
+              Auto scroll{' '}
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link href="/comming-soon" eventKey="comming-soon">
               What is next{' '}
             </Nav.Link>
@@ -61,6 +67,7 @@ export default function App() {
                 element={<HandleCheckboxOtherWrapper />}
               />
               <Route path="/react-store" element={<AppReactStoreRxJS />} />
+              <Route path="/auto-scroll" element={<AutoScroll />} />
               <Route
                 path="/comming-sooncomming-soon"
                 element={<CommingSoon />}
