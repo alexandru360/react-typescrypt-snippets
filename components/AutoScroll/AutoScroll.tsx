@@ -1,14 +1,23 @@
 import * as React from 'react';
+import { Button } from 'react-bootstrap';
+import JsonPrettyPrint from '../_utils/JsonPrettyPrint';
 
 export default function AutoScroll() {
   const containerRef = React.useRef(null);
 
-  const handleScrollToBottom = () => containerRef?.current?.scrollToEnd();
+  const handleScrollToBottom = () => {
+    // containerRef?.current?.scrollToEnd();
+  };
 
   return (
     <React.Fragment>
-      <button onClick={handleScrollToBottom}>Scroll to bottom</button>
+      <JsonPrettyPrint {...containerRef} />
+      <hr />
+      <Button variant="info" onClick={handleScrollToBottom}>
+        Scroll to bottom
+      </Button>
       <br />
+      <hr />
       <div id="div-container" ref={containerRef}>
         <p>
           Incipit prima primi regis Siciliae particula Dux ubi Roggerius,
