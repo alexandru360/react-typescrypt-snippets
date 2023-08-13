@@ -4,9 +4,10 @@ export class Store {
   data: Array<string> = [];
 }
 
-const subject = new BehaviorSubject<Store | null>(null);
-
 let store = new Store();
+store.data = ['Initial data in the app store !'];
+
+const subject = new BehaviorSubject<Store | null>(store);
 
 const AppStore = {
   getStore: (data: any) => subject.subscribe(data),
